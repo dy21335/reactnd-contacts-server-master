@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const config = require('./config')
 const contacts = require('./contacts')
-
+const items =require('./items')
 const app = express()
 
 app.use(express.static('public'))
@@ -29,21 +29,30 @@ app.get('/', (req, res) => {
   res.send(help)
 })
 
-app.use((req, res, next) => {
-  const token = req.get('Authorization')
 
-  if (token) {
-    req.token = token
-    next()
-  } else {
-    res.status(403).send({
-      error: 'Please provide an Authorization header to identify yourself (can be whatever you want)'
-    })
-  }
-})
+
+
+
+// app.use((req, res, next) => {
+//   const token = req.get('Authorization')
+//
+//   // if (token) {
+//   //   req.token = token
+//   //   next()
+//   // } else {
+//   //   res.status(403).send({
+//   //     error: 'Please provide an Authorization header to identify yourself (can be whatever you want)'
+//   //   })
+//   // }
+// })
 
 app.get('/contacts', (req, res) => {
   res.send(contacts.get(req.token))
+})
+
+
+app.get('/items',(req, res) => {
+    res.send(items.get(req.token))
 })
 
 app.delete('/contacts/:id', (req, res) => {
