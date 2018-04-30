@@ -8,7 +8,7 @@ You'll build the front end of the Contacts app throughout the course. Because th
 
 Getting the server running on your local machine takes only a few steps:
 
-1. clone the project - `git clone https://github.com/udacity/reactnd-contacts-server.git`
+1. clone the project - `https://github.com/dy21335/reactnd-contacts-server-master.git`
 2. `cd reactnd-contacts-server`
 3. install its dependencies - `npm install`
 4. start the server - `node server.js`
